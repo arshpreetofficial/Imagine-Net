@@ -1,5 +1,5 @@
 # Imagine-Net
-This is a code implemention of the Imagine-Net method proposed in the manuscipt "Assessing Clinical Progression from Mild Cognitive Impairment to Alzheimer's Disease with Incomplete Multi-modal Neuroimages".
+This is a code implemention of the Imagine-Net method proposed in the manuscipt "Analyzing the transition from mild cognitive impairment to Alzheimer's Disease through incomplete multi-modal neuroimaging".
 # Code Description
 Prerequisites used in our code (This is a reference. You also can use different versions of these prerequisetes.)  
 python == 3.6  
@@ -14,5 +14,5 @@ model.py——defining the network structures used in the Imagine-Net
 layer.py——defining the different network layers, such as convolutional layer, deconvolutional layer and so on  
 evaluate.py——evaluating the classification performance of the trained model
 # Dataset
-Two datasets, including a publicly available Alzheimer’s Disease Neuroimaging Initiative database (ADNI) dataset and a private dataset from the Chinese Longitudinal Aging Study (CLAS) are used in our work.
+Two publicly available datasets Alzheimer’s Disease Neuroimaging Initiative database (ADNI) dataset, he Australian Imaging, Biomarkers and Lifestyle (AIBL) and a private dataset from the Chinese Longitudinal Aging Study (CLAS) are used in our work.
 You can download the ADNI dataset via this link:adni.loni.usc.edu
