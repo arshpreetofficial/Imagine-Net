@@ -1,5 +1,5 @@
-# JSRL
-This is a code implemention of the JSRL method proposed in the manuscipt "Assessing Clinical Progression from Subjective Cognitive Decline to Mild Cognitive Impairment with Incomplete Multi-modal Neuroimages".
+# Imagine-Net
+This is a code implemention of the Imagine-Net method proposed in the manuscipt "Assessing Clinical Progression from Mild Cognitive Impairment to Alzheimer's Disease with Incomplete Multi-modal Neuroimages".
 # Code Description
 Prerequisites used in our code (This is a reference. You also can use different versions of these prerequisetes.)  
 python == 3.6  
@@ -10,7 +10,7 @@ numpy == 1.19.4
 
 code composition  
 main.py——including the training, test and eval for image synthesis functions  
-model.py——defining the network structures used in the JSRL  
+model.py——defining the network structures used in the Imagine-Net  
 layer.py——defining the different network layers, such as convolutional layer, deconvolutional layer and so on  
 evaluate.py——evaluating the classification performance of the trained model
 # Dataset
