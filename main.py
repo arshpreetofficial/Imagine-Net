@@ -32,7 +32,7 @@ def parse_args():
     parser.add_argument('--input_path', type=str, default='.input/Real/', help='mri input path')
     parser.add_argument('--ckpt_dir', type=str, default='./ckpt_joint', help='checkpoint dir')
     parser.add_argument('--outpath', type=str, default='./outpath_joint/', help='output path')
-    parser.add_argument('--grps', type=str, default=['pCN','sCN','MCI','pMCI','sMCI'], help='output path')
+    parser.add_argument('--grps', type=str, default=['MCI','pMCI','sMCI'], help='output path')
     args = parser.parse_args()
     return args
 
@@ -137,16 +137,15 @@ class CCGAN(object):
 
 
         with tf.variable_scope("GAN") as scope:
-            self.fake_B,self.logit, self.prob = build_generator_classifier(self.input_A, self.ngf, numofres=3)	# 生成的PET
-            self.rec_B = build_gen_discriminator(self.input_B, self.ndf, "d")	#判别realPET
+            self.fake_B,self.logit, self.prob = build_generator_classifier(self.input_A, self.ngf, numofres=3)	
+            self.rec_B = build_gen_discriminator(self.input_B, self.ndf, "d")	
             scope.reuse_variables()
-            self.fake_rec_B = build_gen_discriminator(self.fake_B, self.ndf, "d")	#判别syntheticPET
-
+            self.fake_rec_B = build_gen_discriminator(self.fake_B, self.ndf, "d")	
 
     def loss_calc(self):
 
         self.model_vars = tf.trainable_variables()
-        for var in self.model_vars: print(var.name)	#print所有模型参数
+        for var in self.model_vars: print(var.name)	
         self.cls_loss = tf.reduce_mean(
             tf.nn.softmax_cross_entropy_with_logits_v2(logits=self.logit, labels=self.label_holder))
         optimizer1 = tf.train.GradientDescentOptimizer(0.01)
@@ -164,7 +163,7 @@ class CCGAN(object):
 
         self.g_loss1 = p2p_loss + disc_loss
         self.g_loss2 = p2p_loss + disc_loss + self.cls_loss
-        self.d_loss = (tf.reduce_mean(tf.abs(self.fake_rec_B)) + tf.reduce_mean(tf.abs(self.rec_B-1))) / 2.0	#cycA&realA
+        self.d_loss = (tf.reduce_mean(tf.abs(self.fake_rec_B)) + tf.reduce_mean(tf.abs(self.rec_B-1))) / 2.0	
         optimizer2 = tf.train.AdamOptimizer(self.lr, beta1=0.5)
 
         d_vars = [var for var in self.model_vars if 'd' in var.name]
