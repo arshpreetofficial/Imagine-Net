@@ -1,5 +1,5 @@
 # Imagine-Net
-This is a code implemention of the Imagine-Net method proposed in the manuscipt "Analyzing the transition from mild cognitive impairment to Alzheimer's Disease through incomplete multi-modal neuroimaging".
+This is a code implemention of the Imagine-Net method.
 # Code Description
 Prerequisites used in our code (This is a reference. You also can use different versions of these prerequisetes.)  
 python == 3.6  
