@@ -32,7 +32,7 @@ def parse_args():
     parser.add_argument('--input_path', type=str, default='.input/Real/', help='mri input path')
     parser.add_argument('--ckpt_dir', type=str, default='./ckpt_joint', help='checkpoint dir')
     parser.add_argument('--outpath', type=str, default='./outpath_joint/', help='output path')
-    parser.add_argument('--grps', type=str, default=['pCN','sCN','MCI','pMCI','sMCI'], help='output path')
+    parser.add_argument('--grps', type=str, default=['pMCI','sMCI'], help='output path')
     args = parser.parse_args()
     return args
 
